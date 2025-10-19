@@ -47,14 +47,11 @@ def analyze(args):
     plt.savefig(os.path.join(steering_vec_dir,"analyze.png"))
 
 
-
-# Models: 
+    # Models: 
     # Qwen3: "Qwen/Qwen3-4B-Instruct-2507" 
-    # Qwen2.5: "Qwen/Qwen2.5-7B-Instruct" "Qwen/Qwen2.5-3B-Instruct" 
-    # Qwen2: "Qwen/Qwen2-7B-Instruct"
+    # Qwen2.5: "Qwen/Qwen2.5-3B-Instruct" 
     # Mistral: "mistralai/Mistral-7B-Instruct-v0.3"
     # Gemma-3: "google/gemma-3-4b-it"
-    # Deepseek: "deepseek-ai/deepseek-llm-7b-chat"
     # Zephyr: "HuggingFaceH4/zephyr-7b-beta"
 def run():
     parser = argparse.ArgumentParser()
