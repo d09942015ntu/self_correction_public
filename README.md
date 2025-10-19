@@ -15,8 +15,8 @@ Install the following Python packages to run the code: torch, transformers, scik
 ### Steering Vector
 - steering0_preprocess.py: Pre-process the dataset and sort the dataset in increasing/decreasing toxicity.
 - steering1_build.py: Build the steering vectors.
-- (Optional) steering2_run.py: Using steering vectors to generate positive/negative completions.
-- (Optional) steering3_scoring.py: Plots the toxicity scores of positive/negative completions.
+- (Optional) steering2_run.py: Using steering vectors to generate non-toxic/toxic completions.
+- (Optional) steering3_scoring.py: Plots the toxicity scores of non-toxic/toxic completions.
 - steering4_cossim.py: Plots the consine similarity between steering vectors and prompt-induced shifts.
 
 To run the experiments on steering vectors:
