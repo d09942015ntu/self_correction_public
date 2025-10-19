@@ -7,11 +7,9 @@ You need to install Python packages torch, transformers, scikit-learn, random, n
 ## Experiments
 
 ### Difference Vector 
-- diff0_hidden_states.py: Get the score of toxicity of each tokens.
-- diff1_hidden_states.py: Extracts the input length, generated response, and hidden states from the LLM.
-- diff2_rounds_score.py: Sends generated responses to the AWS Perspective API to obtain toxicity scores, corresponding to Table 1 and Figure 1.
-- diff3_get_relation.py: Computes the inner product between the hidden state differences and the unembedding matrix across rounds, corresponding to Table 2.
-- diff4_pca_results.py: Visualizes the differences in hidden states across rounds, corresponding to Figure 2.
+- diff0_create_split.py: Create train/test split for the dataset.
+- diff1_detoxify_text.py: Generate difference vectors, scored by detoxify package.
+- diff1_roberta_text.py: Generate difference vectors, scored by roberta toxicity classifier.
   
 ### Steering Vector
 
@@ -33,18 +31,4 @@ bash steering4_innerprod.sh
 
 ### Others
 - utils.py: Contains utility functions such as parse_hidden_states.
-
-## TODO
-
-- Find a toxicity (or non-toxicity) steering vector. we can select the optimal steering vector based on 
-  - the cosine similarity between the steering vector and the prompting ”difference vectors”, 
-  - its performance on detoxification.
-- After such a vector is computed, you need to verify 
-  - decrease/increase the performance of detoxification, 
-  - it suppresses non-toxic tokens or promote toxic tokens (Note: For visualization, I thinkwe can use a heat map.)
-  - the cosine similarity between the steering vector and the promptingdifference vector” is relatively high.
-- We need to estimate the ”λ” in our formulation, the strength that the steering vector separates toxic and non-toxic tokens.
-- Test robustness by trying a more diverse set of self-correction prompts.
-- Provide more analysis on the prompting ”difference vectors” and the hidden states. How?
-- Test other tasks and other models (and other features). 
 
