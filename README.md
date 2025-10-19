@@ -1,5 +1,5 @@
 # Explanation_ISC
-We provide an explanation of how a large language model (LLM) responds to instructions, with a particular focus on its intrinsic self-correction behavior. In the experimental section, we use the Zephyr-7B-SFT model on the RealToxicityPrompts dataset, and this repository contains the code used to conduct our experiments.
+We provide an explanation of how a large language model (LLM) responds to instructions, with a particular focus on its intrinsic self-correction behavior.
 
 ## Requirement
 You need to install Python packages torch, transformers, scikit-learn, random, numpy, matplotlib, json, tqdm and so on. 
