@@ -14,7 +14,7 @@ def gen_hook_func_hidden_states(layer_idx, hidden_states):
         if "Qwen2" in str(module) or "Qwen3" in str(module) or "zephyr" in str(module) or "Mistral" in str(module):
             hidden_states[layer_idx].append(output[0]) # (seq_len, hidden_size)
         elif "Gemma3" in str(module):
-                hidden_states[layer_idx].append(output[0][0])
+            hidden_states[layer_idx].append(output[0][0])
         else:
             assert 0
     return get_hidden_states
