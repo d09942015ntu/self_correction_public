@@ -11,4 +11,4 @@ NCCL_IB_DISABLE=1
 export NCCL_P2P_DISABLE
 export NCCL_IB_DISABLE
 
-python3 steering4_innerprod.py --steering_vec="outputs/Qwen2.5-3B-Instruct/steering_d1_t100/1_vector/steer.json" --limit=500
+python3 steering4_cossim.py --steering_vec="outputs/Qwen2.5-3B-Instruct/steering_d1_t100/1_vector/steer.json" --limit=500
