@@ -14,7 +14,7 @@ from collections import defaultdict
 
 def gen_hook_func_hidden_states(layer_idx, hidden_state_hooks):
     def hook_hidden_states(module, input, output):
-        if "Qwen2" in str(module) or "Qwen3" in str(module) or "Llama" in str(module) or "Mistral" in str(module):
+        if "Qwen2" in str(module) or "Qwen3" in str(module) or "Mistral" in str(module) or "zephyr" in str(module):
             if output.shape[1] > 1:
                 if layer_idx in hidden_state_hooks.keys():
                     if len(hidden_state_hooks[layer_idx].shape) == 2:
@@ -228,11 +228,9 @@ def seed_everything(seed: int):
 
 # Models: 
     # Qwen3: "Qwen/Qwen3-4B-Instruct-2507" 
-    # Qwen2.5: "Qwen/Qwen2.5-7B-Instruct" "Qwen/Qwen2.5-3B-Instruct" 
-    # Qwen2: "Qwen/Qwen2-7B-Instruct"
+    # Qwen2.5: "Qwen/Qwen2.5-3B-Instruct" 
     # Mistral: "mistralai/Mistral-7B-Instruct-v0.3"
     # Gemma-3: "google/gemma-3-4b-it"
-    # Deepseek: "deepseek-ai/deepseek-llm-7b-chat"
     # Zephyr: "HuggingFaceH4/zephyr-7b-beta"
 def run():
     parser = argparse.ArgumentParser()

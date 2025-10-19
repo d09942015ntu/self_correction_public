@@ -342,11 +342,9 @@ def main(non_toxic_prompting, toxic_prompting, system_prompt, strong_or_weak, nu
 access_token = 'your token here'
     # Models: 
     # Qwen3: "Qwen/Qwen3-4B-Instruct-2507" 
-    # Qwen2.5: "Qwen/Qwen2.5-7B-Instruct" "Qwen/Qwen2.5-3B-Instruct" 
-    # Qwen2: "Qwen/Qwen2-7B-Instruct"
+    # Qwen2.5: "Qwen/Qwen2.5-3B-Instruct" 
     # Mistral: "mistralai/Mistral-7B-Instruct-v0.3"
     # Gemma-3: "google/gemma-3-4b-it"
-    # Deepseek: "deepseek-ai/deepseek-llm-7b-chat"
     # Zephyr: "HuggingFaceH4/zephyr-7b-beta"
 if __name__ == '__main__':
     print("Experiment starts.")
