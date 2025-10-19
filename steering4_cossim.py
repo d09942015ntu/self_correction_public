@@ -50,6 +50,7 @@ def get_inner_prod(args):
                         result_all[f"{condition}_round{round+1}"].append((layer,cval))
 
     plt.clf()
+    plt.figure(figsize=(4, 3))
     for ikey,ivals in result_all.items():
         ivals_avg = defaultdict(list)
         for ival in ivals:
@@ -57,13 +58,15 @@ def get_inner_prod(args):
         if "random" in ikey:
             plt.plot(list(ivals_avg.keys()),[np.average(x) for x in ivals_avg.values()], label="random", color="gray")
         else:
-            plt.plot(list(ivals_avg.keys()),[np.average(x) for x in ivals_avg.values()], label=ikey)
+            label = ikey.replace("positive", "non-toxic").replace("negative", "toxic")
+            plt.plot(list(ivals_avg.keys()),[np.average(x) for x in ivals_avg.values()], label=label)
         plt.plot(list(ivals_avg.keys()), [0 for _ in ivals_avg.values()], color="black")
-    plt.xlabel("layer")
-    plt.ylabel("cosine similarity")
-    plt.title("cosine similarity between steering vector and difference vector")
-    plt.legend()
-    plt.savefig(os.path.join(output_dir,f"result.png"))
+    plt.xlabel("layer", fontsize=11, labelpad=4)
+    plt.ylabel("cosine similarity", fontsize=11, labelpad=0)
+    plt.title("Qwen2.5-3B-Instruct",fontsize=12, weight = 'bold', pad=6)
+    plt.legend(loc="best",fontsize=6)
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir,f"Qwen2.5-3B_innerprod_result.png"))
 
 
 
