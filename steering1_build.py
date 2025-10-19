@@ -11,7 +11,7 @@ from collections import defaultdict
 
 def gen_hook_func_hidden_states(layer_idx, hidden_states):
     def get_hidden_states(module, input, output):
-        if "Qwen2" in str(module) or "Qwen3" in str(module) or "Llama" in str(module) or "Mistral" in str(module):
+        if "Qwen2" in str(module) or "Qwen3" in str(module) or "zephyr" in str(module) or "Mistral" in str(module):
             hidden_states[layer_idx].append(output[0]) # (seq_len, hidden_size)
         elif "Gemma3" in str(module):
                 hidden_states[layer_idx].append(output[0][0])
@@ -160,19 +160,16 @@ def seed_everything(seed: int):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = True
 
-# Models: 
+    # Models: 
     # Qwen3: "Qwen/Qwen3-4B-Instruct-2507" 
-    # Qwen2.5: "Qwen/Qwen2.5-7B-Instruct" "Qwen/Qwen2.5-3B-Instruct" 
-    # Qwen2: "Qwen/Qwen2-7B-Instruct"
+    # Qwen2.5: "Qwen/Qwen2.5-3B-Instruct" 
     # Mistral: "mistralai/Mistral-7B-Instruct-v0.3"
     # Gemma-3: "google/gemma-3-4b-it"
-    # Deepseek: "deepseek-ai/deepseek-llm-7b-chat"
     # Zephyr: "HuggingFaceH4/zephyr-7b-beta"
 def run():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_tags", type=str, default=["1"], nargs="+")
     parser.add_argument("--data_ratio", type=float, default=1)
-    #parser.add_argument("--model_dir", type=str, default="Qwen/Qwen2.5-7B-Instruct")
     parser.add_argument("--model_dir", type=str, default="google/gemma-3-4b-it")
     parser.add_argument("--limit", type=int, default=20000000)
     parser.add_argument("--output_dir", type=str, default="outputs")
